@@ -5,19 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wireframe</title>
     <link rel="stylesheet" href="styles.css"/>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            let product_one = document.querySelector(".product-one")
+            let product_two = document.querySelector(".product-two")
+            let product_three = document.querySelector(".product-three")
+            let categories = document.querySelectorAll(".categories > section")
+            let products = [product_one,product_two,product_three];
+
+            document.addEventListener("click",(e)=>{
+                if( !e.target.closest("header") ){
+                    categories.forEach(element=>{
+                        let arrow = element.getElementsByTagName("img")[0];
+                        arrow.classList.remove("dropdown");
+                    })
+                    products.forEach(viewSect => {
+                            viewSect.classList.add("viewsection")
+                    });
+                    console.log("not touching header");
+                }
+            })
+            categories.forEach(element => {
+                element.addEventListener("click",()=>{                    
+                    console.log('clicked');
+                    let arrow = element.getElementsByTagName("img")[0];
+                    if(products[parseInt(element.dataset.number)].classList.contains("viewsection")){
+                        products.forEach(viewSect => {
+                            viewSect.classList.add("viewsection")
+                        });
+                        categories.forEach(element => {
+                            let arrow = element.getElementsByTagName("img")[0];
+                            arrow.classList.remove("dropdown");
+                        });
+                        products[parseInt(element.dataset.number)].classList.remove("viewsection")
+                        arrow.classList.add("dropdown");
+                    }else if(!products[parseInt(element.dataset.number)].classList.contains("viewsection")){
+                        products[parseInt(element.dataset.number)].classList.add("viewsection")
+                        arrow.classList.remove("dropdown");
+                    }
+                })
+            });
+        })
+    </script>
 </head>
 <body>
-    <header></header>
+    <header> 
+        <section class="header-area">
+            <img alt="companyLogo"/>
+        <section style="display:flex; flex-direction:row; flex:2;" class="categories">
+            <section style="display:flex; flex-direction: row; align-items: center; cursor:pointer;"  data-number="0"><p style="margin-right:5px;">Activities</p><img  src="icons/down-arrow.png" class="arrow"/></section>
+            <section style="display:flex; flex-direction: row; align-items: center; cursor:pointer;" data-number="1"><p style="margin-right:5px;">Programs</p><img src="icons/down-arrow.png" class="arrow"/></section>
+            <section style="display:flex; flex-direction: row; align-items: center; cursor:pointer;" data-number="2"><p style="margin-right:5px;">Locations</p><img src="icons/down-arrow.png" class="arrow"/></section>
+        </section>
+        <section style="display:flex; flex-direction:row; right:0px; align-items: center; justify-content: center; column-gap: 20px;">
+            <a href="#"><img src="icons/keypad.png" style="width:30px; height:30px;"/></a>
+            <button style="width:80px; height:35px; border-radius: 30px; border:solid grey; background-color: transparent; cursor:pointer;">Sign in</button>
+        </section>
+        </section>
+        <section class="products product-one viewsection " style="color:red">Content</section>
+        <section class="products product-two viewsection" style="color:blue" >Content</section>
+        <section class="products product-three viewsection" style="color:white" >Content</section> 
+    </header>
     <main>
-        <section>
-            <section></section>
+            <section class="new-product">
+                <img src="photos/pexels-riciardus-297803.jpg"/>
+                <div style="font-size: 30px; padding:100px; color:white;">
+                    <p style="font-size:40px;">Go on a Retreat</p> 
+                    <button>Learn more</button>
+                </div>
+            </section> 
+            <section class="other-product" >
+                <div>
+                    <h1>Learn</h1>
+                    <hr>
+                </div>
+                <div>
+                    <h1>Work</h1>
+                    <hr>
+                </div>
+                <div>
+                    <h1>Create</h1>
+                    <hr>
+                </div>
+                <div>
+                    <h1>Explore</h1>
+                    <hr>
+                </div>
+                <div>
+                    <h1>Bond</h1>
+                    <hr>
+                </div>
+                <div>
+                    <h1>Relax</h1>
+                    <hr>
+                </div>
+                <div>
+                    <h1>Grow</h1>
+                    <hr>
+                </div>
+                <div>
+                    <h1>Reflect</h1>
+                    <hr>
+                </div>
+            </section>
+    </main>
+    <footer>
+        <section style="padding:20px;">
+        <section class="services">
             <section>
-                <div></div>
-                <div></div>
+                <h1>For individuals and small families</h1>
+            </section>
+            <section>
+                <h1>For large groups</h1>
+            </section>
+            <section>
+                <h1>Support</h1>
+            </section>
+            <section>
+                <h1>Contact</h1>
+            </section>
+            <section>
+                <h1>Company Name</h1>
             </section>
         </section>
-        <section></section>
-    </main>
-    <footer></footer>
+        <section class="features">
+            <hr>
+            <section>
+                Featured Products
+            </section>
+            <hr>
+        </section>
+        <section class="contact" style="display:flex; flex-direction:row; justify-content: center;">
+                <section style="display:flex; flex-direction: row;">
+                    <div>change region</div>
+                    <div>social media</div>
+                    <div>company logo</div>
+                </section>
+                <section></section>
+        </section>
+        </section>
+    </footer>
 </body>
 </html>

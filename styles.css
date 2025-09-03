@@ -1,27 +1,215 @@
-html,body{
+html{
     margin:0;
-    overflow-x:hidden;
-    
+
+}
+body{
+    margin:0;
 }
 
 footer{
- background-color: yellow;
+background-color: yellow;
+width:100%;
+
+
 }
 
 main{
  background-color: blue;
+ height:auto;
+
 
 }
 
-main:first-child{
+/* main:first-child{
     background-color: brown;
 }
 
 main:last-child{
     background-color: rgb(103, 27, 27);
-}
+} */
 
 header{
     height:63px;
+   
+    z-index: 15;
+    position: sticky;
+    top:0;
+    
+
+    
+}
+
+header section:nth-child(2) section{
+ margin-left: 40px;
+}
+
+.header-area{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+
+    justify-content: space-between;
+     background-color: rgb(222, 236, 206);
+
+     padding:10px;
+}
+
+.products{
+    background: green;
+    display: block;
+    height:400px;
+    box-shadow: 0px 10px 30px -5px rgb(52, 57, 52);
+    padding:50px;
+}
+
+
+.new-product img{
+    z-index: 5;
+    width:auto;
+    height:80vw;
+    position: relative;
+    transform: scaleX(-1);
+
+}
+
+.new-product div{
+    z-index:10; 
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-product div button{
+    border-radius: 30px;
+    border:none;
+    background-color: blue;
+    width:130px;
+    height:50px;
+    font-size: 20px;
+    cursor:pointer;
+}
+.new-product{
+    overflow: hidden;
+    height:700px;
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
     background-color: blueviolet;
+}
+
+
+
+.other-product{
+    /* Below are surrounding positions*/
+    padding:30px;
+    display:grid;
+    column-gap: 30px;
+    row-gap: 30px;
+    justify-content: center;
+    grid-template-rows: 480px 480px 480px ;
+    grid-template-columns: repeat(3,1fr) ;
+    /*Below are internal psoitions*/
+
+}
+
+.other-product div:nth-child(4){
+    grid-column: span 2;
+    background-image: url('photos/pexels-fmaderebner-869258.jpg'); 
+    background-size: cover;
+}
+.other-product div:nth-child(1){
+    background-image: url('photos/pexels-charlie-solorzano-614781-1762815.jpg'); 
+    background-size: cover;
+
+}
+.other-product div:nth-child(2){
+    background-image: url('photos/pexels-packermann-878151.jpg'); 
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position:center center ;
+
+}
+.other-product div:nth-child(3){
+    background-image: url('photos/pexels-yigithan02-1108528.jpg'); 
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position:center center ;
+}
+.other-product div:nth-child(5){
+    background-image: url('photos/pexels-minan1398-853168.jpg'); 
+    background-size:cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: black;
+}
+.other-product div:nth-child(6){
+    background-image: url('photos/pexels-nathan-moore-1300563-2603681.jpg'); 
+    background-size:cover;
+    background-position: center center;
+    background-repeat: no-repeat; 
+    background-color: black;
+    
+}
+.other-product div:nth-child(7){
+    background-image: url('photos/pexels-1585669-3077882.jpg'); 
+    background-size:cover;
+    background-position: center center;
+    background-repeat: no-repeat; 
+    background-color: black;
+    
+}
+.other-product div:nth-child(8){
+    background-image: url('photos/pexels-keegan-houser-557040-1478685.jpg'); 
+    background-size:cover;
+    background-position: center center;
+    background-repeat: no-repeat; 
+    background-color: black;
+}
+
+
+.other-product div{
+    background-color: green;
+    border-radius: 30px;
+    padding:30px;
+    overflow:hidden;
+    flex:1;
+    cursor: pointer;
+    
+}
+
+.other-product div h1{
+    color: whitesmoke;
+    
+}
+
+
+.services{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.features section{
+    display:flex;
+    justify-content: center;
+}
+
+.viewsection{
+    display: none;
+}
+
+.arrow.dropdown{
+    transform: rotateZ(0deg);
+}
+
+
+.arrow{
+    width:15px; 
+    height:15px; 
+    transform:rotateZ(180deg); 
+    transition:transform 0.25s ease;
+    
 }
