@@ -6,42 +6,36 @@ body{
     margin:0;
 }
 
+* a{
+ text-decoration: none;
+}
+
 footer{
-background-color: yellow;
+background-color: rgb(27, 73, 137);
 width:100%;
 
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
 }
 
 main{
- background-color: blue;
- height:auto;
-
-
+    background-color: rgb(27, 88, 174);
+    height:auto;
 }
-
-/* main:first-child{
-    background-color: brown;
-}
-
-main:last-child{
-    background-color: rgb(103, 27, 27);
-} */
 
 header{
     height:63px;
-   
     z-index: 15;
     position: sticky;
     top:0;
-    
-
-    
 }
 
 header section:nth-child(2) section{
- margin-left: 40px;
+    margin-left: 40px;
 }
+
 
 .header-area{
     display:flex;
@@ -49,17 +43,28 @@ header section:nth-child(2) section{
     align-items: center;
 
     justify-content: space-between;
-     background-color: rgb(222, 236, 206);
+    background-color: rgb(27, 73, 137);
+    
 
-     padding:10px;
+    padding:10px;
 }
 
 .products{
-    background: green;
-    display: block;
-    height:400px;
+    background: rgb(36, 65, 106);
+    display: flex;
+    height:380px;
     box-shadow: 0px 10px 30px -5px rgb(52, 57, 52);
-    padding:50px;
+    padding:50px 100px;
+    justify-content: space-between;
+
+}
+
+.products div a:visited{
+ color:whitesmoke;
+}
+
+.products div a{
+ color:whitesmoke;
 }
 
 
@@ -119,24 +124,65 @@ header section:nth-child(2) section{
     grid-column: span 2;
     background-image: url('photos/pexels-fmaderebner-869258.jpg'); 
     background-size: cover;
+    isolation:isolate;
+}
+.other-product div:nth-child(4)::before{
+    content:"";
+    background: black ;
+    background-size: cover;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.5;
+
 }
 .other-product div:nth-child(1){
     background-image: url('photos/pexels-charlie-solorzano-614781-1762815.jpg'); 
     background-size: cover;
+    isolation: isolate;
 
+}
+.other-product div:nth-child(1)::before{
+    content:"";
+    background: black ;
+    background-size: cover;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.5;
 }
 .other-product div:nth-child(2){
     background-image: url('photos/pexels-packermann-878151.jpg'); 
     background-size:cover;
     background-repeat: no-repeat;
     background-position:center center ;
+    isolation: isolate;
 
+}
+.other-product div:nth-child(2)::before{
+    content:"";
+    background: black ;
+    background-size: cover;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.5;
 }
 .other-product div:nth-child(3){
     background-image: url('photos/pexels-yigithan02-1108528.jpg'); 
     background-size:cover;
     background-repeat: no-repeat;
     background-position:center center ;
+    isolation: isolate;
+}
+.other-product div:nth-child(3)::before{
+    content:"";
+    background: black ;
+    background-size: cover;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.5;
 }
 .other-product div:nth-child(5){
     background-image: url('photos/pexels-minan1398-853168.jpg'); 
@@ -144,6 +190,16 @@ header section:nth-child(2) section{
     background-position: center center;
     background-repeat: no-repeat;
     background-color: black;
+    isolation: isolate;
+}
+.other-product div:nth-child(5)::before{
+    content:"";
+    background: black ;
+    background-size: cover;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.5;
 }
 .other-product div:nth-child(6){
     background-image: url('photos/pexels-nathan-moore-1300563-2603681.jpg'); 
@@ -151,7 +207,17 @@ header section:nth-child(2) section{
     background-position: center center;
     background-repeat: no-repeat; 
     background-color: black;
+    isolation: isolate;
     
+}
+.other-product div:nth-child(6)::before{
+    content:"";
+    background: black ;
+    background-size: cover;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.5;
 }
 .other-product div:nth-child(7){
     background-image: url('photos/pexels-1585669-3077882.jpg'); 
@@ -159,7 +225,17 @@ header section:nth-child(2) section{
     background-position: center center;
     background-repeat: no-repeat; 
     background-color: black;
+    isolation: isolate;
     
+}
+.other-product div:nth-child(7)::before{
+    content:"";
+    background: black ;
+    background-size: cover;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.5;
 }
 .other-product div:nth-child(8){
     background-image: url('photos/pexels-keegan-houser-557040-1478685.jpg'); 
@@ -167,16 +243,28 @@ header section:nth-child(2) section{
     background-position: center center;
     background-repeat: no-repeat; 
     background-color: black;
+    isolation: isolate;
+}
+.other-product div:nth-child(8)::before{
+    content:"";
+    background: black ;
+    background-size: cover;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.5;
 }
 
 
 .other-product div{
-    background-color: green;
+    background-color: black;
     border-radius: 30px;
     padding:30px;
     overflow:hidden;
     flex:1;
     cursor: pointer;
+    position: relative;
+    color: whitesmoke;
     
 }
 
@@ -190,6 +278,8 @@ header section:nth-child(2) section{
     display:flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-bottom: 10%;
+
 }
 
 .features section{
@@ -212,4 +302,29 @@ header section:nth-child(2) section{
     transform:rotateZ(180deg); 
     transition:transform 0.25s ease;
     
+}
+
+
+.footer-section p{
+    font-size:0.85rem;
+    color:whitesmoke;
+
+}
+
+.footer-section p a:visited{
+    color:whitesmoke;
+
+}
+
+.footer-section p a{
+    color:whitesmoke;
+
+}
+
+.footer-info p a:visited{
+    color:whitesmoke;
+}
+
+.footer-info p a{
+    color:whitesmoke;
 }
