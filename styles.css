@@ -328,3 +328,25 @@ header section:nth-child(2) section{
 .footer-info p a{
     color:whitesmoke;
 }
+
+.credits a:visited{
+    color:whitesmoke;
+
+}
+
+.credits a{
+    color:whitesmoke;
+}
+
+.event{
+    background-image: url("photos/pexels-ian-panelo-11220092.jpg");
+    background-size: cover;
+    background-position: center center;
+    height:90%;
+    width:100%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
