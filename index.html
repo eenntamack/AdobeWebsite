@@ -3,9 +3,485 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adobe</title>
+    <title>Adobe Front Page Study</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            let product_one = document.querySelector(".product-one")
+            let product_two = document.querySelector(".product-two")
+            let product_three = document.querySelector(".product-three")
+            let categories = document.querySelectorAll(".categories > section")
+            let products = [product_one,product_two,product_three];
+
+            document.addEventListener("click",(e)=>{
+                if( !e.target.closest("header") ){
+                    categories.forEach(element=>{
+                        let arrow = element.getElementsByTagName("img")[0];
+                        arrow.classList.remove("dropdown");
+                    })
+                    products.forEach(viewSect => {
+                            viewSect.classList.add("viewsection")
+                    });
+                    console.log("not touching header");
+                }
+            })
+            categories.forEach(element => {
+                element.addEventListener("click",()=>{                    
+                    console.log('clicked');
+                    let arrow = element.getElementsByTagName("img")[0];
+                    if(products[parseInt(element.dataset.number)].classList.contains("viewsection")){
+                        products.forEach(viewSect => {
+                            viewSect.classList.add("viewsection")
+                        });
+                        categories.forEach(element => {
+                            let arrow = element.getElementsByTagName("img")[0];
+                            arrow.classList.remove("dropdown");
+                        });
+                        products[parseInt(element.dataset.number)].classList.remove("viewsection")
+                        arrow.classList.add("dropdown");
+                    }else if(!products[parseInt(element.dataset.number)].classList.contains("viewsection")){
+                        products[parseInt(element.dataset.number)].classList.add("viewsection")
+                        arrow.classList.remove("dropdown");
+                    }
+                })
+            });
+        })
+    </script>
 </head>
 <body>
-    
+    <header> 
+        <section class="header-area">
+            <p>RETREAT</p>
+        <section style="display:flex; flex-direction:row; flex:2;" class="categories">
+            <section style="display:flex; flex-direction: row; align-items: center; cursor:pointer;"  data-number="0"><p style="margin-right:5px;">Activities</p><img  src="icons/down-arrow.png" class="arrow"/></section>
+            <section style="display:flex; flex-direction: row; align-items: center; cursor:pointer;" data-number="1"><p style="margin-right:5px;">Programs</p><img src="icons/down-arrow.png" class="arrow"/></section>
+            <section style="display:flex; flex-direction: row; align-items: center; cursor:pointer;" data-number="2"><p style="margin-right:5px;">Locations</p><img src="icons/down-arrow.png" class="arrow"/></section>
+        </section>
+        <section style="display:flex; flex-direction:row; right:0px; align-items: center; justify-content: center; column-gap: 20px;">
+            <a href="#"><img src="icons/keypad.png" style="width:30px; height:30px;"/></a>
+            <button style="width:80px; height:35px; border-radius: 30px; border:solid grey; background-color: transparent; cursor:pointer;">Sign in</button>
+        </section>
+        </section>
+        <section class="products product-one viewsection " style="color:whitesmoke">
+            <section style="display:flex; justify-content: space-evenly; column-gap: 80px;">
+                <div>
+                    <h1>
+                        Wellness and Self Care
+                    </h1>
+                    <hr>
+                    <a href="#"> 
+                        <p>Yoga</p>
+                    </a>
+                    <a href="#">
+                        <p>Meditation</p>
+                    </a>
+                    <a href="#">
+                        <p>Nature walks</p>
+                    </a>
+                    <a href="#">
+                        <p>Journaling</p>
+                    </a>
+                    <a href="#">
+                        <p>Spa treatments</p>
+                    </a>
+                </div>
+                <div>
+                    <h1>
+                        Business
+                    </h1>
+                    <hr>
+                    <a href="#">
+                        <p>Trust building exercises</p>
+                    </a>
+                    <a href="#">
+                        <p>Workshops</p>
+                    </a>
+                    <a href="#">
+                        <p>Innovation Sessions</p>
+                    </a>
+                    <a href="#">
+                        <p>Goal Setting</p>
+                    </a>
+                </div>
+                <div>
+                    <h1>
+                        Personal Growth
+                    </h1>
+                    <hr>
+                    <a href="#">
+                        <p>Arts and crafts</p>
+                    </a>
+                    <a href="#">
+                        <p>Music</p>
+                    </a>
+                    <a href="#">
+                        <p>Nature Reflection</p>
+                    </a>
+                </div>
+            </section>
+            <section>
+                <section style="overflow:hidden; position: relative;" class="event">
+                    <h1>New Event Near You:</h1>
+                    <p>Join this weekend for a campfire getaway</p>
+                    <hr>
+                    <p>Food & Drinks</p>
+                    <p>Wellness Program</p>
+                </section>
+                
+            </section>
+            
+            
+        </section>
+        <section class="products product-two viewsection" style="color:whitesmoke" >
+            <div>
+                <h1>Wellness Retreat Programs</h1>
+                <hr>
+                <a href="#"> 
+                        <p>Mind-Body Balance</p>
+                </a>
+                <a href="#"> 
+                        <p>Healing and Restoration</p>
+                </a>
+                <a href="#"> 
+                        <p>Detox and Renewal</p>
+                </a>
+                <a href="#"> 
+                        <p>Movement and Vitality</p>
+                </a>
+            </div>
+            <div>
+                <h1>Team Retreat Programs</h1>
+                <hr>
+                <a href="#"> 
+                        <p>Leadership Development</p>
+                </a>
+                <a href="#"> 
+                        <p>Team Building and Collaboration</p>
+                </a>
+                <a href="#"> 
+                        <p>Innovation and Creativity</p>
+                </a>
+                <a href="#"> 
+                        <p>Vision and Strategy Alignment</p>
+                </a>
+            </div>
+            <div>
+                <h1>Personal Growth Programs</h1>
+                <hr>
+                <a href="#"> 
+                        <p>Inner Journey</p>
+                </a>
+                <a href="#"> 
+                        <p>Emotional Healing</p>
+                </a>
+                <a href="#"> 
+                        <p>Purpose and Clarity</p>
+                </a>
+                <a href="#"> 
+                        <p>Connection to Nature</p>
+                </a>
+            </div>
+            <div>
+                <h1>Creative Retreat Program</h1>
+                <hr>
+                <a href="#"> 
+                        <p>Art and Expression</p>
+                </a>
+                <a href="#">
+                        <p>Storytelling and Writing</p>
+                </a>
+                <a href="#"> 
+                        <p>Mindful Creativity</p>
+                </a>
+                <a href="#"> 
+                        <p>Performance and Play</p>
+                </a>
+            </div>
+           
+            
+        </section>
+        <section class="products product-three viewsection" style="color:whitesmoke" >
+            <div>
+                <h1>Asia</h1>
+                <hr>
+                <a href="#"> 
+                        <p>Japan</p>
+                </a>
+                <a href="#"> 
+                        <p>Korea</p>
+                </a>
+                <a href="#"> 
+                        <p>China</p>
+                </a>
+                <a href="#"> 
+                        <p>India</p>
+                </a>
+                <a href="#"> 
+                        <p>Phillipines</p>
+                </a>
+            </div>
+            <div>
+                <h1>North America</h1>
+                <hr>
+                <a href="#"> 
+                        <p>United States</p>
+                </a>
+                <a href="#"> 
+                        <p>Canada</p>
+                </a>
+                <a href="#"> 
+                        <p>Mexico</p>
+                </a>
+            </div>
+            <div>
+                <h1>South America</h1>
+                <hr>
+                <a href="#"> 
+                        <p>Brazil</p>
+                </a>
+                <a href="#"> 
+                        <p>Puerto Rico</p>
+                </a>
+                <a href="#"> 
+                        <p>Colombia</p>
+                </a>
+            </div>
+            <div>
+                <h1>Europe</h1>
+                <hr>
+                <a href="#"> 
+                        <p>United Kingdom</p>
+                </a>
+                <a href="#"> 
+                        <p>Ireland</p>
+                </a>
+                <a href="#"> 
+                        <p>Sweden</p>
+                </a>
+                <a href="#"> 
+                        <p>Russia</p>
+                </a>
+                <a href="#"> 
+                        <p>Italy</p>
+                </a>
+                <a href="#"> 
+                        <p>France</p>
+                </a>
+                <a href="#"> 
+                        <p>Germany</p>
+                </a>
+                <a href="#"> 
+                        <p>Spain</p>
+                </a>
+            </div>
+            <div>
+                <h1>Africa</h1>
+                <hr>
+                <a href="#"> 
+                        <p>Nigeria</p>
+                </a>
+                <a href="#"> 
+                        <p>Rwanda</p>
+                </a>
+                <a href="#"> 
+                        <p>South Africa</p>
+                </a>
+                <a href="#"> 
+                        <p>Kenya</p>
+                </a>
+                <a href="#"> 
+                        <p>Uganda</p>
+                </a>
+            </div>
+            <div>
+                <h1>Other</h1>
+                <hr>
+                <a href="#"> 
+                        <p>Australia</p>
+                </a>
+            </div>
+            
+        </section> 
+    </header>
+    <main>
+            <section class="new-product">
+                <img src="photos/pexels-riciardus-297803.jpg"/>
+                <div style="font-size: 30px; padding:100px; color:white;">
+                    <p style="font-size:40px;">Go on a Retreat</p> 
+                    <button>Learn more</button>
+                </div>
+            </section> 
+            <section class="other-product" >
+                <div>
+                    <section style="background-color: #1f4570; opacity: 0.75; width:150%; transform: translateX(-10%) translateY(140%); position: absolute; height:50%;"></section>
+                    <h1>Learn</h1>
+                    <p style=" font-size:1.25rem;">Discover something</p>
+                    <p style=" font-size:1.25rem;">We offer many resources to help you learn new skils and sharpen your mind</p>
+                    <p style=" font-size:1.25rem;">From chess to horse-back riding, you will be given the suport and care to ensure you gain new skills and having a wonderful experience</p>
+                    <p style=" font-size:1.25rem;"><em>Learn more</em></p>
+                    <section style="position:absolute; bottom:0px; display:flex; align-items: center; color:whitesmoke" class="credits">
+                        <p>Image Source:</p>
+                        <a href="https://www.pexels.com/photo/black-and-white-chess-pieces-on-chess-board-1762815/">&nbsp;&nbsp;<em>Charlie Saloranzo</em></a>
+                    </section>
+                </div>
+                <div>
+                    <section style="background-color: #1f4570; opacity: 0.75; width:150%; transform: translateX(-10%) translateY(140%); position: absolute; height:50%;"></section>                    
+                    <h1>Work</h1>
+                    <p style=" font-size:1.25rem;">Heal your body</p>
+                    <p style=" font-size:1.25rem;">Need a workout?</p>
+                    <p style=" font-size:1.25rem;">We offer many services</p> 
+                    <p style=" font-size:1.25rem;"><em>Learn more</em></p>
+                    <section style="position:absolute; bottom:0px; display:flex; align-items: center; color:whitesmoke" class="credits">
+                        <p>Image Source:</p>
+                        <a href="https://www.pexels.com/photo/person-running-near-street-between-tall-trees-878151/">&nbsp;&nbsp;<em>Philip Ackermann</em></a>
+                    </section>
+                </div>
+                <div>
+                    <section style="background-color: #1f4570; opacity: 0.75; width:150%; transform: translateX(-10%) translateY(140%); position: absolute; height:50%;"></section>                    
+                    <h1>Create</h1>
+                    <p style=" font-size:1.25rem;">Get your hands dirty</p>
+                    <p style=" font-size:1.25rem;">Get into our arts and crafts program where you can create whatever your heart desires</p>
+                    <p style=" font-size:1.25rem;"><em>Learn more</em></p>
+                    <section style="position:absolute; bottom:0px; display:flex; align-items: center; color:whitesmoke" class="credits">
+                        <p>Image Source:</p>
+                        <a href="https://www.pexels.com/photo/person-holding-brown-and-gray-paint-brush-1108528/">&nbsp;&nbsp;<em>Yigithan Bal</em></a>
+                    </section>
+                </div>
+                <div>
+                    <section style="background-color: #1f4570; opacity: 0.75; width:150%; transform: translateX(-10%) translateY(120%); position: absolute; height:50%;"></section>
+                    <h1>Explore</h1>
+                    <p style=" font-size:1.25rem;">Explore the world world around you</p>
+                    <p style=" font-size:1.25rem;">We offer many exchange programs where you can book a trip to many countries around the world</p>
+                    <p style=" font-size:1.25rem;">Learn more</em></p>
+                    <section style="position:absolute; bottom:0px; display:flex; align-items: center; color:whitesmoke" class="credits">
+                        <p>Image Source:</p>
+                        <a href="https://www.pexels.com/photo/two-man-hiking-on-snow-mountain-869258/">&nbsp;&nbsp;<em>Flo Maderebner</em></a>
+                    </section>
+                </div>
+                <div>
+                    <section style="background-color: #1f4570; opacity: 0.75; width:150%; transform: translateX(-10%) translateY(120%); position: absolute; height:50%;"></section>                    
+                    <h1>Bond</h1>
+                    <p style=" font-size:1.25rem;">Get into the community</p>
+                    <p style=" font-size:1.25rem;">Get into our many community programs to help strengthen bonding, and participate in community given activities like gardening</p>
+                    <p style=" font-size:1.25rem;"><em>Learn more</em></p>
+                    <section style="position:absolute; bottom:0px; display:flex; align-items: center; color:whitesmoke" class="credits">
+                        <p>Image Source:</p>
+                        <a href="https://www.pexels.com/photo/people-silhouette-during-sunset-853168/">&nbsp;&nbsp;<em>Min An</em></a>
+                    </section>
+                </div>
+                <div>
+                    <section style="background-color: #1f4570; opacity: 0.75; width:150%; transform: translateX(-10%) translateY(140%); position: absolute; height:50%;"></section>                    
+                    <h1>Relax</h1>
+                    <p style=" font-size:1.25rem;">Kick your feet back</p>
+                    <p style=" font-size:1.25rem;">Need a break? we have many private suites/lodges for a quiet and serene experience</p>
+                    <p style=" font-size:1.25rem;"><em>Learn more</em></p>
+                    <section style="position:absolute; bottom:0px; display:flex; align-items: center; color:whitesmoke" class="credits">
+                        <p>Image Source:</p>
+                        <a href="https://www.pexels.com/photo/tent-near-tree-2603681/">&nbsp;&nbsp;<em>Nathan Moore</em></a>
+                    </section>
+                </div>
+                <div>
+                    <section style="background-color: #1f4570; opacity: 0.75; width:150%; transform: translateX(-10%) translateY(140%); position: absolute; height:50%;"></section>                    
+                    <h1>Grow</h1>
+                    <p style=" font-size:1.25rem;">Personalized guidance</p>
+                    <p style=" font-size:1.25rem;">With our dedicated you can meet with therapist to help guide and ease your experience with you day away from the hustle and bustle of work life</p>
+                    <p style=" font-size:1.25rem;"><em>Learn more</em></p>
+                    <section style="position:absolute; bottom:0px; display:flex; align-items: center; color:whitesmoke" class="credits">
+                        <p>Image Source:</p>
+                        <a href="https://www.pexels.com/photo/person-rock-climbing-3077882/">&nbsp;&nbsp;<em>Анна Рыжкова</em></a>
+                    </section>
+                </div>
+                <div>
+                    <section style="background-color: #1f4570; opacity: 0.75; width:150%; transform: translateX(-10%) translateY(140%); position: absolute; height:50%;"></section>                             
+                    <h1>Reflect</h1>
+                    <p style=" font-size:1.25rem;">Survey</p>
+                    <p style=" font-size:1.25rem;">Take a survey so we can find out more about your personal needs, so we can be better prepared to welcome you to our program</p>
+                    <p style=" font-size:1.25rem;"><em>Take the survey</em></p>
+                    <section style="position:absolute; bottom:0px; display:flex; align-items: center; color:whitesmoke" class="credits">
+                        <p>Image Source:</p>
+                        <a href="https://www.pexels.com/photo/person-sitting-on-rock-on-body-of-water-1478685/">&nbsp;&nbsp;<em>Keegan Houser</em></a>
+                    </section>
+                </div>
+            </section>
+    </main>
+    <footer>
+        <section style="padding:20px;">
+        <section class="services">
+            <section class="footer-section">
+                <h1>For individuals and small families</h1>
+                <p><a href="#">Family programs</a></p>
+                <p><a href="#">Individual programs</a></p>
+                <p><a href="#">Couple programs</a></p>
+            </section>
+            <section class="footer-section">
+                <h1>For large groups</h1>
+                <p><a href="#">Event Planning</a></p>
+            </section>
+            <section class="footer-section">
+                <h1>Support</h1>
+                <p><a href="#">Help center</a></p>
+                <p><a href="#">Concerns</a></p>
+            </section>
+            <section class="footer-section">
+                <h1>Contact</h1>
+                <p><a href="#">Request more information</a></p>
+                <p><a href="#">Customer Service</a></p>
+            </section>
+            <section class="footer-section">
+                <h1>Company Name</h1>
+                <p><a href="#">Create a personalized account</a></p>
+                <p style="font-size:0.85rem;"><a href="#">Events</a></p>
+                <p style="font-size:0.85rem;"><a href="#">Careers</a></p>
+            </section>
+        </section>
+        <section class="features" style="height:10%;">
+            <hr width="80%">
+            <section style="display: flex; justify-content: space-evenly; color:whitesmoke;">
+                <p><strong>R</strong>elax</p>
+                <p><strong>E</strong>nergize</p>
+                <p><strong>T</strong>rain</p>
+                <p><strong>R</strong>eflect</p>
+                <p><strong>E</strong>ngage</p>
+                <p><strong>A</strong>pply</p>
+                <p><strong>T</strong>ransform</p>
+                
+            </section>
+            <hr width="80%">
+        </section>
+        <section class="contact" style="display:flex; flex-direction:row; justify-content: space-between; margin-top:1.5%;">
+                <section style="display: flex; justify-content: center; width:auto; align-items: center; column-gap: 10px;" class="footer-info">
+                    <div style="display:flex; align-items: center; column-gap: 10px;">
+                        <a style="display: flex; align-items: center;" href="#">
+                            <img src="icons/world-wide-web.png" width="20px" height="20px;"/>
+                        </a> 
+                        <p>change regions</p>
+                        <a style="display: flex; align-items: center;" href="#">
+                            <img src="icons/down-arrow.png" width="12px" height="12px; "/>
+                        </a> 
+                    </div>
+                    <div style="display:flex; align-items: center; column-gap: 10px;">
+                        <a style="display: flex; align-items: center;" href="#">
+                            <img src="icons/instagram.png" width="20px" height="20px;"/>
+                        </a>
+                        <a style="display: flex; align-items: center;" href="#">
+                            <img src="icons/linkedin.png" width="20px" height="20px;"/>
+                        </a>
+                        <a style="display: flex; align-items: center;" href="#">
+                            <img src="icons/facebook.png" width="20px" height="20px;"/>
+                        </a>
+                    </div>
+                    <div style="display:flex; align-items: center;">RETREAT</div>
+                </section>
+                <section style="display:flex; flex-direction: row; font-size:12px; align-items: center;" class="footer-info" >
+                            <p>Copyright &copy; 2025 Retreat. All rights reserved.&nbsp; / &nbsp;</p> 
+                            <p><a href="#"> Privacy </a> /&nbsp; </p> 
+                            <p><a href="#"> Terms of Use </a> /&nbsp; </p>
+                            <p><a href="#"> Cookie preferences </a> /&nbsp; </p>  
+                            <p><a href="#"> Do not sell or share my personal information </a> /&nbsp; </p> 
+                            <p><a href="#"> Ad Choices </a> </p>    
+                </section>
+        </section>
+        </section>
+    </footer>
 </body>
 </html>
